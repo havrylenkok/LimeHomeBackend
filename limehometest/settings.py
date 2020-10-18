@@ -136,9 +136,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'run/static')
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -153,9 +151,6 @@ REST_FRAMEWORK = {
     # by default ask user to at least be logged in
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
-    ],
-    'DEFAULT_FILTER_BACKENDS': [
-        'django_filters.rest_framework.DjangoFilterBackend',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': PAGINATION_MAX_PER_PAGE,
