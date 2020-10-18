@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'annoying',
     'rest_framework',
     'drf_yasg',
+    'corsheaders',
 
     'properties',
     'bookings'
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
