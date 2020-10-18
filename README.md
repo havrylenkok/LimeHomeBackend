@@ -1,5 +1,9 @@
 LimeHome Places test backend
 
+Spec https://gitlab.com/limehome/interviews/full-stack-challenge/
+Deploy https://limehometest-back.herokuapp.com/docs/
+Docs https://limehometest-back.herokuapp.com/docs/
+
 # Run local
 
 Python virtual env (using virtualenvwrapper)
