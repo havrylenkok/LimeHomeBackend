@@ -12,3 +12,5 @@ django-environ~=0.4
 djangorestframework<3.12
 drf-yasg~=1.17 # docs generation
 packaging~=20.4
+django-heroku~=0.3
+gunicorn~=20.0

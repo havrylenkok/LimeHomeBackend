@@ -14,6 +14,7 @@ import sys
 from datetime import timedelta
 from pathlib import Path
 
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import environ
 
@@ -169,7 +170,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 ROBOT_EMAIL = "robot@limehometest.com"
 HERE_PLACES_BASE_URL = 'https://places.ls.hereapi.com/places/v1/'
-HERE_API_KEY = ''
+HERE_API_KEY = env('HERE_API_KEY', default='')
 
 # Local
 
@@ -186,3 +187,5 @@ IS_TEST = bool(list(filter(lambda x: x in sys.argv, test_flags)))
 if IS_TEST:
     CELERY_ALWAYS_EAGER = True
     STATICFILES_STORAGE = 'pipeline.storage.NonPackagingPipelineStorage'
+
+django_heroku.settings(locals())
