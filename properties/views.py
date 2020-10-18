@@ -1,14 +1,11 @@
-import json
-
-import requests
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
 
 from bookings.models import Booking
 from bookings.serializers import BookingSerializer
-from limehometest.settings import HERE_API_KEY, HERE_PLACES_BASE_URL
 from properties.serializers import PropertySerializer, PropertyQuerySerializer
+from utils.here_places import HerePlacesApi
 
 
 class ApiPropertyListView(viewsets.ViewSet):
@@ -22,12 +19,8 @@ class ApiPropertyListView(viewsets.ViewSet):
         query_serializer = PropertyQuerySerializer(data=request.GET)
         places = []
         if query_serializer.is_valid():
-            response = requests.get(f'{HERE_PLACES_BASE_URL}discover/explore/',
-                                    dict(at=query_serializer.validated_data["at"],
-                                         cat='accommodation',
-                                         apiKey=HERE_API_KEY))
-            data = json.loads(response.content)
-            places = data.get('results', {}).get('items', [])
+            api = HerePlacesApi()
+            places = api.near_coordinates(query_serializer.validated_data["at"])
         serializer = PropertySerializer(instance=places, many=True)
         return Response(serializer.data)
 
