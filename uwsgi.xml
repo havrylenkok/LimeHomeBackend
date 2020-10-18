@@ -1,0 +1,9 @@
+<uwsgi>
+    <socket>0.0.0.0:3031</socket>
+    <module>limehometest.wsgi:application</module>
+    <workers>2</workers>
+    <buffer-size>32768</buffer-size>
+    <env>DJANGO_SETTINGS_MODULE=limehometest.settings</env>
+    <max-requests>1000</max-requests>
+    <touch-reload>touch.reload</touch-reload>
+</uwsgi>
