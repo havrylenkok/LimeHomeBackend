@@ -1,27 +1,30 @@
 LimeHome Places test backend
 
 Spec https://gitlab.com/limehome/interviews/full-stack-challenge/
+
 Deploy https://limehometest-back.herokuapp.com/docs/
+
 Docs https://limehometest-back.herokuapp.com/docs/
 
-# Run local
+# Run locally
 
-Python virtual env (using virtualenvwrapper)
+
+Create a Python virtual env (using virtualenvwrapper):
 
 `mkvirtualenv limehometest`
 
-Create a database (using psql)
+Create a database (using PostgreSQL i.e. psql):
 
 `create database limehometest`
 
-Create settings_local
+Create settings_local:
 
 ```
 cd limehometest
 touch settings_local.py
 ```
 
-Populate it with secrets and set DEBUG
+Open it in an editor of your preference, populate it with secrets and set DEBUG:
 
 ```
 DEBUG = True
@@ -40,10 +43,10 @@ DATABASES = {
     }
 }
 ```
-Apply migrations
+Apply migrations to the database:
 
 `python manage.py migrate`
 
-Run server
+Finally run server:
 
 `python manage.py runserver`
