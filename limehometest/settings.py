@@ -49,7 +49,6 @@ INSTALLED_APPS = [
 
     'utils',
     'annoying',
-    'pytils',
     'rest_framework',
     'drf_yasg',
 
